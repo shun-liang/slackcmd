@@ -11,6 +11,8 @@ WEBHOOK_ENV_VAR_NAME = 'SLACK_WEBHOOK_URL'
 
 
 def post_to_slack(url, text, channel, user, emoji, quiet):
+    if text == "":
+        text = "\n"
     headers = {'content-type':'application/json'}
     payload = json.dumps({
             'channel' : channel,
